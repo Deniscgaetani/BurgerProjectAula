@@ -55,31 +55,31 @@ class BurgerBuilder extends Component {
     }
     purchaseContinueHandler = async () => {
         // alert('You continue!');
-        try {
-            this.setState({loading: true})
-            const data = {
-                ...this.state,
-                costumer: {
-                    name: 'teste',
-                    address: {
-                        zipcode: '1323131231',
-                        country: 'Brazil',
-                        street: 'test street'
-                    },
-                    email: 'e@gmail.com',
-                },
-                deliveryMethod: 'fastest'
-            }
-            const postMethod = await axios.post('/orders.json', data);
-            if (postMethod.status === 200) {
-                this.setState({loading: false, purchasing: false})
-            }
-            console.log('postMethod', postMethod);
-        } catch (error) {
-            this.setState({loading: false, purchasing: false})
-            console.log('error:', error);
-        }
-
+        // try {
+        //     this.setState({loading: true})
+        //     const data = {
+        //         ...this.state,
+        //         costumer: {
+        //             name: 'teste',
+        //             address: {
+        //                 zipcode: '1323131231',
+        //                 country: 'Brazil',
+        //                 street: 'test street'
+        //             },
+        //             email: 'e@gmail.com',
+        //         },
+        //         deliveryMethod: 'fastest'
+        //     }
+        //     const postMethod = await axios.post('/orders.json', data);
+        //     if (postMethod.status === 200) {
+        //         this.setState({loading: false, purchasing: false})
+        //     }
+        //     console.log('postMethod', postMethod);
+        // } catch (error) {
+        //     this.setState({loading: false, purchasing: false})
+        //     console.log('error:', error);
+        // }
+    this.props.history.push('/checkout');
     }
     addIngredientHandler = (type) => {
         const oldCount = this.state.ingredients[type];
